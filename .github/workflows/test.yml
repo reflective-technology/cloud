@@ -19,8 +19,7 @@ jobs:
         with:
           go-version: "1.25"
       - name: Test
-        run: go run gotest.tools/gotestsum@latest --jsonfile go-test.json --format
-          testname
+        run: go run gotest.tools/gotestsum@latest --jsonfile go-test.json --format testname
       - name: Test Summary
         uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2
         if: ${{ !cancelled() }}
