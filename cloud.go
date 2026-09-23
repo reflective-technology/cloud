@@ -29,7 +29,7 @@ var (
 )
 
 func init() {
-	var mode = os.Getenv(envCloudMode)
+	mode := os.Getenv(envCloudMode)
 	SetMode(mode)
 }
 

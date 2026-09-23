@@ -6,46 +6,35 @@ import (
 	"github.com/Reflective-Technology/cloud"
 )
 
-const (
-	envCloudMode = "CLOUD_MODE"
-	AWS          = "aws"
-	GCP          = "gcp"
-	errorResult  = "Expected Mode() to return %s, but got %s"
-)
+func equal(t *testing.T, expected, actual string) {
+	if expected != actual {
+		t.Errorf("Expected Mode() to return %s, but got %s", expected, actual)
+	}
+}
 
 func TestAWS(t *testing.T) {
 	cloud.SetMode(cloud.AWS)
-	if cloud.Mode() != cloud.AWS {
-		t.Errorf(errorResult, AWS, cloud.Mode())
-	}
+	equal(t, cloud.AWS, cloud.Mode())
 }
 
 func TestGCP(t *testing.T) {
 	cloud.SetMode(cloud.GCP)
-	if cloud.Mode() != cloud.GCP {
-		t.Errorf(errorResult, GCP, cloud.Mode())
-	}
+	equal(t, cloud.GCP, cloud.Mode())
 }
 
 func TestEmpty(t *testing.T) {
 	cloud.SetMode("")
-	if cloud.Mode() != cloud.UNSPECIFIED {
-		t.Errorf(errorResult, cloud.UNSPECIFIED, cloud.Mode())
-	}
+	equal(t, cloud.UNSPECIFIED, cloud.Mode())
 }
 
 func TestAzure(t *testing.T) {
 	cloud.SetMode(cloud.AZURE)
-	if cloud.Mode() != cloud.AZURE {
-		t.Errorf(errorResult, cloud.AZURE, cloud.Mode())
-	}
+	equal(t, cloud.AZURE, cloud.Mode())
 }
 
 func TestOnPremise(t *testing.T) {
 	cloud.SetMode(cloud.ON_PREMISE)
-	if cloud.Mode() != cloud.ON_PREMISE {
-		t.Errorf(errorResult, cloud.ON_PREMISE, cloud.Mode())
-	}
+	equal(t, cloud.ON_PREMISE, cloud.Mode())
 }
 
 func TestUnknown(t *testing.T) {
