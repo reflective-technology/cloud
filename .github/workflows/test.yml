@@ -39,7 +39,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - name: Comment code coverage report
-        uses: fgrosse/go-coverage-report@2eb52af4e808426e2d4edd850ff8c9ca14fce029
+        uses: fgrosse/go-coverage-report@c4bf7e78d1379325814b4dd42d80e526082e788b
         with:
           coverage-artifact-name: "coverage-results"
           coverage-file-name: "coverage.out"
