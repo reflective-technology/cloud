@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - name: Run detect-secrets
-        uses: reviewdog/action-detect-secrets@897d73f2f5ede591f16b90f8a4119e562f72563d
+        uses: reviewdog/action-detect-secrets@1939918bdb67fa18bf7cb6e73af72e995f606f92
         with:
           reporter: "github-pr-review"
   golangci-lint:
